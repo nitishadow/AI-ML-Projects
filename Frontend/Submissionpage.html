@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitSync - Submit Your Data</title>
+    <link rel="stylesheet" href="Submissionpage.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="websiteName">
+          <div class="img"></div>
+          <div class="name">
+            <h1>FitSync</h1>
+          </div>
+        </div>
+        <div class="menu">
+          <a href="#"
+            ><i class="fa-solid fa-house"></i>
+            <p>Home</p></a
+          >
+          <a href="#home"
+            ><i class="fa-solid fa-chart-simple"></i>
+            <p>Dashboard</p></a
+          >
+          <a href="#about"
+            ><i class="fa-solid fa-user"></i>
+            <p>About us</p></a
+          >
+          <a href="#"
+            ><i class="fa-solid fa-right-from-bracket"></i>
+            <p>Log out</p></a
+          >
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="content">
+        <div class="title">
+          <h1>Let the test begin!</h1>
+          <img src="begin!.png" alt="Start Test" />
+        </div>
+        <form id="fitnessForm">
+          <div class="questionbox">
+            <h4>1. Where are you in the timeline of life?</h4>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              min="16"
+              max="120"
+              step="any"
+              placeholder="Enter your age"
+              required
+            />
+          </div>
+          <div class="questionbox">
+            <h4>2. Which best describes you?</h4>
+            <select id="genderDetails" name="genderDetails" required>
+              <option value="" disabled selected>Choose gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="questionbox">
+            <h4>3. How tall do you stand? (in centimeters, please)</h4>
+            <input
+              type="number"
+              id="height"
+              name="height"
+              min="50"
+              max="250"
+              step="any"
+              placeholder="Enter your height (in cm)"
+              required
+            />
+          </div>
+          <div class="questionbox">
+            <h4>
+              4. What does the weight scale say? (Don't worry this stays between
+              us!)
+            </h4>
+            <input
+              type="number"
+              id="weight"
+              name="weight"
+              min="40"
+              max="150"
+              step="any"
+              placeholder="Enter your weight (in kg)"
+              required
+            />
+          </div>
+          <div class="questionbox">
+            <h4>
+              5. If your steps could talk, what number would they brag about
+              daily?
+            </h4>
+            <input
+              type="number"
+              id="steps"
+              name="daily_steps"
+              min="0"
+              max="15000"
+              step="any"
+              placeholder="Enter the steps"
+              required
+            />
+          </div>
+          <div class="questionbox">
+            <h4>
+              6. How many calories do you usually take in? (An estimate works!)
+            </h4>
+            <input
+              type="number"
+              id="calories"
+              name="calories_consumed"
+              min="1000"
+              max="4000"
+              step="any"
+              placeholder="Enter the calories"
+              required
+            />
+          </div>
+          <div class="questionbox">
+            <h4>
+              7. How much time do you spend breaking a sweat each day? (Would be
+              great if you answer in hours)
+            </h4>
+            <input
+              type="number"
+              id="hrs"
+              name="exercise_hours"
+              min="0"
+              max="5"
+              step="any"
+              placeholder="Enter the time (in hrs)"
+              required
+            />
+          </div>
+          <div class="questionbox">
+            <h4>
+              8. Let's test your hydration game. How much water do you drink
+              each day?
+            </h4>
+            <input
+              type="number"
+              id="waterIntake"
+              name="water_intake_liters"
+              min="0"
+              max="5"
+              step="any"
+              placeholder="Enter your water level (in liters)"
+              required
+            />
+          </div>
+          <div class="questionbox">
+            <h4>9. How many hours of sleep are you clocking in each night?</h4>
+            <input
+              type="number"
+              id="sleepHours"
+              name="sleep_hours"
+              min="0"
+              max="14"
+              step="any"
+              placeholder="Enter the time (in hrs)"
+              required
+            />
+          </div>
+          <div class="questionbox">
+            <h4>
+              10. How's life treating you these days? Feeling calm, or is stress
+              piling up?
+            </h4>
+            <select id="stress_level" name="stress_level" required>
+              <option value="" disabled selected>Choose level</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+          <div class="questionbox submit">
+            <input type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("#fitnessForm");
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+          console.log("DAAerjkdjkfejdkfdsjfk");
+
+          // Gather form data
+          const age = document.getElementById("age").value;
+          const genderDetails = document.getElementById("genderDetails").value;
+          const height = document.getElementById("height").value;
+          const weight = document.getElementById("weight").value;
+          const daily_steps = document.getElementById("steps").value;
+          const calories_consumed = document.getElementById("calories").value;
+          const exercise_hours = document.getElementById("hrs").value;
+          const water_intake_liters =
+            document.getElementById("waterIntake").value;
+          const sleep_hours = document.getElementById("sleepHours").value;
+          const stress_level = document.getElementById("stress_level").value;
+
+          // Calculate BMI
+          const heightInMeters = height / 100;
+          const BMI = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+          // Form data to send
+          const formData = {
+            Age: age,
+            BMI: BMI,
+            Gender_Male: genderDetails === "Male" ? 1 : 0,
+            Daily_Steps: daily_steps,
+            Calories_Consumed: calories_consumed,
+            Exercise_Hours: exercise_hours,
+            Water_Intake_Liters: water_intake_liters,
+            Sleep_Hours: sleep_hours,
+            Stress_Level_Medium: stress_level === "Medium" ? 1 : 0,
+            Stress_Level_High: stress_level === "High" ? 1 : 0,
+          };
+
+          console.log(formData);
+
+          // Make a POST request to the API server
+          fetch("http://20.198.249.225:4000/predict", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          })
+            .then((response) => {
+              console.log(response);
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data);
+              if (data) {
+                const healthData = {
+                  score: data.Healthy_Lifestyle_Score, // Use the key from your response
+                  quote:
+                    "Wow! You are doing a great job taking care of yourself!",
+                };
+                sessionStorage.setItem(
+                  "healthData",
+                  JSON.stringify(healthData)
+                );
+                window.location.href = "ResultPage.html";
+              } else {
+                alert(
+                  "There was a problem with the submission. Please try again."
+                );
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+              console.error("There was a problem with the submission:", error);
+              alert(
+                "There was a problem submitting the form. Please check your network connection and try again."
+              );
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

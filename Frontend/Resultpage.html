@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitSync - Results</title>
+    <link rel="stylesheet" href="Resultpage.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="websiteName">
+          <div class="img"></div>
+          <div class="name">
+            <h1>FitSync</h1>
+          </div>
+        </div>
+        <div class="menu">
+          <a href="#"
+            ><i class="fa-solid fa-house"></i>
+            <p>Home</p></a
+          >
+          <a href="#home"
+            ><i class="fa-solid fa-chart-simple"></i>
+            <p>Dashboard</p></a
+          >
+          <a href="#about"
+            ><i class="fa-solid fa-user"></i>
+            <p>About us</p></a
+          >
+          <a href="#"
+            ><i class="fa-solid fa-right-from-bracket"></i>
+            <p>Log out</p></a
+          >
+        </div>
+      </div>
+    </header>
+    <main>
+      <h1>Your fitness analysis results are here</h1>
+      <div class="Score">Health Score: <span id="healthScore"></span></div>
+      <div class="quote" id="quote"></div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fetch the stored data
+        const healthData = JSON.parse(sessionStorage.getItem("healthData"));
+
+        if (healthData) {
+          // Display the data on the page
+          document.getElementById("healthScore").textContent =
+            healthData.score || "N/A";
+          document.getElementById("quote").textContent =
+            healthData.quote || "Error: No quote available.";
+        } else {
+          // If no data, show an error message
+          document.getElementById("quote").textContent =
+            "Error: No results found.";
+        }
+      });
+    </script>
+  </body>
+</html>
